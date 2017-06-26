@@ -1,0 +1,125 @@
+﻿@model MvcBlog.Models.Makale
+
+@{
+    ViewBag.Title = "MakaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .tag {
+        background-color: beige;
+    }
+
+    .list-inline {
+        list-style: outside none none;
+        margin-left: -5px;
+        padding-left: 0;
+    }
+
+        .list-inline > li {
+            display: inline-block;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+</style>>
+    
+
+<div class="col-md-8">
+    <!-- Title -->
+    <h1>@Model.Baslik</h1>
+    <!-- Author -->
+    <p class="lead">
+        <img class="img-circle" width="75" @Model.Uye.Foto" alt="@Model.Uye.AdSoyad" /> <a href="/Uye/Index/@Model.UyeId">@Model.Uye.AdSoyad</a>
+    </p>
+    <hr>
+    <!-- Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+    <hr>
+    <!-- Preview Image -->
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+    <img class="img-responsive" src="@Model.Foto" alt="@Model.Baslik" />
+    <hr>
+    <!-- Post Content -->
+    <p class="lead">
+        @Html.Raw(Model.Icerik)
+    </p>
+    <div class="well">
+        @foreach (var item in Model.Etikets)
+        {
+            <span class="tag">@item.EtiketAdi </span>
+        }
+    </div>
+    <hr>
+
+</div>
+
+
+
+@*<h2>MakaleDetay</h2>
+
+    <div>
+        <h4>Makale</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Uye.KullaniciAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Uye.KullaniciAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Baslik)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Icerik)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Icerik)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Foto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Foto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tarih)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Okunma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Okunma)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MakaleId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
